@@ -1,7 +1,8 @@
 from typing import Optional
-from src.utils.models.token import Token
+from utils.models.token import Token
 from utils.enums.keywords import Keyword
 from utils.enums.token_type import TokenType
+from utils.enums.symbols import Symbol
 
 class Lexer:
     def __init__(self, source: str):
@@ -91,7 +92,7 @@ class Lexer:
             token.line = self.line
             token.column = self.column - len(lexeme) - 2  # -2 for quotes
             return token, None
-        elif current_char in {':', ';', ',', '(', ')', '{', '}', '+', '-', '*', '/', '='}:
+        elif current_char in Symbol.all_symbols():
             token = Token()
             token.token_type = TokenType.SYMBOL
             token.lexeme = current_char
