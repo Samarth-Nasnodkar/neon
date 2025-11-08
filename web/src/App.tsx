@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
+import CodeEditor from './components/CodeEditor';
 
 function App() {
   return (
-    <h1>Neon</h1>
+    <div>
+      <CodeEditor />
+    </div>
   );
 }
 
